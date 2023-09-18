@@ -18,9 +18,15 @@ function divide() {
 }
 
 
-function getUserInput() {
 
+const button = document.querySelectorAll('.number');
+button.onclick = function () {
+    let chosenNumber = document.querySelector('.number').innerHTML;
+    console.log(chosenNumber);
+    return chosenNumber;
 }
+
+
 
 // Get the first input as a array of strings?, i.e. "1" "1" "1" "1" = 1111
 function firstNumberConverter() {
