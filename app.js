@@ -1,51 +1,32 @@
 let firstNumber = 0;
 let secondNumber = 0;
+let operator;
 
-function add() {
+function add(a, b) {
     return a + b;
 }
 
-function subtract() {
+function subtract(a, b) {
     return a - b;
 }
 
-function multiply() {
+function multiply(a, b) {
     return a * b;
 }
 
-function divide() {
+function divide(a, b) {
     return a / b;
 }
 
-
-
-const button = document.querySelectorAll('.number');
-button.onclick = function () {
-    let chosenNumber = document.querySelector('.number').innerHTML;
-    console.log(chosenNumber);
-    return chosenNumber;
-}
-
-
-
-// Get the first input as a array of strings?, i.e. "1" "1" "1" "1" = 1111
-function firstNumberConverter() {
-    let firstNumberArray = [];
-    while (firstNumberArray.length <= 5) {
-        let number = document.querySelectorAll('.number'); //Osäker på denna
-        firstNumberArray.push(number);
+function operate(operator, num1, num2) {
+    if (operator == "+") {
+        return result = add(num1, num2)
+    } else if (operator == "-") {
+        return result = subtract(num1, num2)
+    } else if (operator == "*" || operator == "x") {
+        return result = multiply(num1, num2)
+    } else if (operator == "/") {
+        return result = divide(num1, num2)
     }
-    let firstNumberString = firstNumberArray.toString();
-    let firstNumber = parseInt(firstNumberString);
-    return firstNumber;
+    console.log(result);
 }
-// Maybe needed to concatinate to a string? I.e. "1" + "1" + "1" + "1" > "1111"
-
-// Then convert to number: "1111" > 1111
-
-// Assign this to a variable (a)
-
-// Then do the same for the second variable
-
-// Then run the appropriate function with the two variables assigned above
-
