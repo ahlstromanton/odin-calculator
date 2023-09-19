@@ -1,6 +1,7 @@
 let firstNumber = 0;
 let secondNumber = 0;
-let operator;
+let result;
+let operator = "";
 let displayArray = [];
 
 function add(a, b) {
@@ -20,7 +21,6 @@ function divide(a, b) {
 }
 
 function operate(operator, num1, num2) {
-    let result;
 
     switch (operator) {
         case "+":
@@ -46,9 +46,16 @@ function operate(operator, num1, num2) {
 // Gets the clicked input and stores it in an array
 const getEnteredNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
-    displayArray.push(buttonValue);
-    arrayConverter(displayArray);
-    return displayArray;
+    if (buttonValue == "+" || buttonValue == "-" || buttonValue == "*" || buttonValue == "x" || buttonValue == "/" || buttonValue == ".") {
+        operator = buttonValue;
+    } else if (buttonValue == "=") {
+        operate(operator, firstNumber, secondNumber);
+        console.log(result);
+    } else {
+        displayArray.push(buttonValue);
+        arrayConverter(displayArray);
+        return displayArray;
+    }
 }
 
 // Converts the array created in getEnteredNumber() into a string to display for the user. Needed to remove ","s?
