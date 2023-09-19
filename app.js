@@ -19,14 +19,36 @@ function divide(a, b) {
 }
 
 function operate(operator, num1, num2) {
-    if (operator == "+") {
-        return result = add(num1, num2)
-    } else if (operator == "-") {
-        return result = subtract(num1, num2)
-    } else if (operator == "*" || operator == "x") {
-        return result = multiply(num1, num2)
-    } else if (operator == "/") {
-        return result = divide(num1, num2)
+    let result;
+
+    switch (operator) {
+        case "+":
+            result = add(num1, num2);
+            break;
+        case "-":
+            result = subtract(num1, num2);
+            break;
+        case "*":
+        case "x":
+            result = multiply(num1, num2);
+            break;
+        case "/":
+            result = divide(num1, num2);
+            break;
+        default:
+            console.log("Invalid operator");
+            return;
     }
-    console.log(result);
+    return result;
+}
+
+function buttonPress() {
+    const button = document.querySelector('.number');
+    const clickedButton = button.innerHTML;
+    populateScreen(clickedButton);
+}
+
+function populateScreen(clickedButton) {
+    const screen = document.querySelector('.screen');
+    screen.textContent = clickedButton; //This will update the screen everytime a button is clicked. Need to add logic so that it is added to the end of the string
 }
