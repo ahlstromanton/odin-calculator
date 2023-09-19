@@ -56,8 +56,11 @@ const getEnteredNumber = function (clickedButton) {
         displayArray = [];
         populateScreen();
     } else if (buttonValue == "=") {
-        operate(operator, firstNumber, secondNumber);
-        console.log(result);
+        // Maybe redudant to handle this here, as the default case in operate() throws an error for this. 
+        if (operator != "") {
+            operate(operator, firstNumber, secondNumber);
+            console.log(result); //Just for testing
+        }
     } else {
         displayArray.push(buttonValue);
         arrayConverter(displayArray);
