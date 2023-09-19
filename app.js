@@ -48,6 +48,13 @@ const getEnteredNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
     if (buttonValue == "+" || buttonValue == "-" || buttonValue == "*" || buttonValue == "x" || buttonValue == "/" || buttonValue == ".") {
         operator = buttonValue;
+    } else if (buttonValue == "C") {
+        firstNumber = 0;
+        secondNumber = 0;
+        result;
+        operator = "";
+        displayArray = [];
+        populateScreen();
     } else if (buttonValue == "=") {
         operate(operator, firstNumber, secondNumber);
         console.log(result);
