@@ -1,6 +1,7 @@
 let firstNumber = 0;
 let secondNumber = 0;
 let operator;
+let displayArray = [];
 
 function add(a, b) {
     return a + b;
@@ -44,10 +45,16 @@ function operate(operator, num1, num2) {
 
 function buttonPress(clickedButton) {
     const buttonValue = clickedButton.innerHTML;
-    populateScreen(buttonValue);
+    displayArray.push(buttonValue);
+    populateScreen(displayArray);
+    return displayArray;
 }
 
 function populateScreen(clickedButton) {
     const screen = document.querySelector('.screen');
-    screen.textContent = clickedButton; //This will update the screen everytime a button is clicked. Need to add logic so that it is added to the end of the string
+    let arrayToString = displayArray.toString();
+    let shownValue = arrayToString.replace(/,/g, "");
+    screen.textContent = shownValue; //This will update the screen everytime a button is clicked. Need to add logic so that it is added to the end of the string
 }
+
+
