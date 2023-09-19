@@ -42,10 +42,9 @@ function operate(operator, num1, num2) {
     return result;
 }
 
-function buttonPress() {
-    const button = document.querySelector('.number');
-    const clickedButton = button.innerHTML;
-    populateScreen(clickedButton);
+function buttonPress(clickedButton) {
+    const buttonValue = clickedButton.innerHTML;
+    populateScreen(buttonValue);
 }
 
 function populateScreen(clickedButton) {
