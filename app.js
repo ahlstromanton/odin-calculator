@@ -3,9 +3,6 @@ let secondNumber = 0;
 let operator;
 let displayArray = [];
 
-// is it better to define functions the other way? I.e:
-// const add = function(a, b) { return a + b; };
-
 function add(a, b) {
     return a + b;
 }
@@ -46,15 +43,23 @@ function operate(operator, num1, num2) {
     return result;
 }
 
-const enterNumber = function (clickedButton) {
+// Gets the clicked input and stores it in an array
+const getEnteredNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
     displayArray.push(buttonValue);
+    arrayConverter(displayArray);
+    return displayArray;
+}
+
+// Converts the array created in getEnteredNumber() into a string to display for the user. Needed to remove ","s?
+const arrayConverter = function (displayArray) {
     let arrayToString = displayArray.toString();
     let formattedString = arrayToString.replace(/,/g, "");
     populateScreen(formattedString);
     return formattedString;
 }
 
+// Populates the screen with the entered string, and converts it back to a number for calculation
 const populateScreen = function (formattedString) {
     const screen = document.querySelector('.screen');
     screen.textContent = formattedString;
