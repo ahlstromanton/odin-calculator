@@ -46,17 +46,17 @@ function operate(operator, num1, num2) {
     return result;
 }
 
-function buttonPress(clickedButton) {
+const enterNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
     displayArray.push(buttonValue);
-    populateScreen(displayArray);
-    return displayArray;
-}
-
-function populateScreen() {
-    const screen = document.querySelector('.screen');
     let arrayToString = displayArray.toString();
     let formattedString = arrayToString.replace(/,/g, "");
+    populateScreen(formattedString);
+    return formattedString;
+}
+
+const populateScreen = function (formattedString) {
+    const screen = document.querySelector('.screen');
     screen.textContent = formattedString;
     return firstNumber = Number(formattedString);
 }
