@@ -3,6 +3,9 @@ let secondNumber = 0;
 let operator;
 let displayArray = [];
 
+// is it better to define functions the other way? I.e:
+// const add = function(a, b) { return a + b; };
+
 function add(a, b) {
     return a + b;
 }
@@ -50,11 +53,9 @@ function buttonPress(clickedButton) {
     return displayArray;
 }
 
-function populateScreen(clickedButton) {
+function populateScreen() {
     const screen = document.querySelector('.screen');
     let arrayToString = displayArray.toString();
     let shownValue = arrayToString.replace(/,/g, "");
-    screen.textContent = shownValue; //This will update the screen everytime a button is clicked. Need to add logic so that it is added to the end of the string
+    screen.textContent = shownValue;
 }
-
-
