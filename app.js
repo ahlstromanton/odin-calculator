@@ -56,6 +56,7 @@ function buttonPress(clickedButton) {
 function populateScreen() {
     const screen = document.querySelector('.screen');
     let arrayToString = displayArray.toString();
-    let shownValue = arrayToString.replace(/,/g, "");
-    screen.textContent = shownValue;
+    let formattedString = arrayToString.replace(/,/g, "");
+    screen.textContent = formattedString;
+    return firstNumber = Number(formattedString);
 }
