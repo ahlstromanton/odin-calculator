@@ -1,9 +1,12 @@
 let activeNumber = 0;
 let passiveNumber = 0;
+let calculatedActiveNumber = 0;
+let calculatedPassiveNumber = 0;
 let result;
 let operator = "";
 let displayArray = [];
 let calculationArray = [];
+
 
 function add(a, b) {
     return a + b;
@@ -49,19 +52,33 @@ const getEnteredNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
     if (buttonValue == "+" || buttonValue == "-" || buttonValue == "*" || buttonValue == "x" || buttonValue == "/" || buttonValue == ".") {
         operator = buttonValue;
-        passiveNumber = activeNumber;
-        activeNumber = 0;
+        calculatedPassiveNumber = calculatedActiveNumber;
+        calculatedActiveNumber = 0;
     } else if (buttonValue == "C") {
         fullReset();
         populateScreen();
     } else if (buttonValue == "=") {
-        operate(operator, activeNumber, passiveNumber);
+        operate(operator, calculatedActiveNumber, calculatedPassiveNumber);
         console.log(result);
     } else {
         displayArray.push(buttonValue);
         arrayConverter(displayArray);
+        stringToNumber(buttonValue);
         return displayArray;
     }
+    return buttonValue
+}
+
+// Creates array of input numbers
+const stringToNumber = function (number) {
+    let inputConvertedToNumber = Number(number);
+    calculationArray.push(inputConvertedToNumber);
+}
+
+// Creates number of array of numbers
+const numberArrayToNumber = function (calculationArray) {
+    let convertedNumber = calculationArray.map(Number);
+    console.log(convertedNumber);
 }
 
 // Converts the array created in getEnteredNumber() into a string to display for the user. Needed to remove ","s?
@@ -81,7 +98,9 @@ const populateScreen = function (formattedString) {
 
 const fullReset = function () {
     activeNumber = 0;
+    calculatedActiveNumber = 0;
     passiveNumber = 0;
+    calculatedPassiveNumber = 0;
     result = 0;
     operator = "";
     displayArray = [];
