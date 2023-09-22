@@ -1,0 +1,17 @@
+#wrapper {}
+
+.calculator-body {}
+
+.screen {
+    width: 10%;
+    border: 1px solid black;
+}
+
+.firstRow {
+    display: flex;
+    align-items: left;
+}
+
+.screen {
+    flex: 1;
+}

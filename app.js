@@ -3,6 +3,8 @@ let calculatedActiveNumber = 0;
 let result;
 let operator = "";
 let displayArray = [];
+populateScreen(0);
+
 
 function add(a, b) {
     return a + b;
