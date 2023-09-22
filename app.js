@@ -1,8 +1,9 @@
-let firstNumber = 0;
-let secondNumber = 0;
+let activeNumber = 0;
+let passiveNumber = 0;
 let result;
 let operator = "";
 let displayArray = [];
+let calculationArray = [];
 
 function add(a, b) {
     return a + b;
@@ -48,19 +49,14 @@ const getEnteredNumber = function (clickedButton) {
     const buttonValue = clickedButton.innerHTML;
     if (buttonValue == "+" || buttonValue == "-" || buttonValue == "*" || buttonValue == "x" || buttonValue == "/" || buttonValue == ".") {
         operator = buttonValue;
+        passiveNumber = activeNumber;
+        activeNumber = 0;
     } else if (buttonValue == "C") {
-        firstNumber = 0;
-        secondNumber = 0;
-        result;
-        operator = "";
-        displayArray = [];
+        fullReset();
         populateScreen();
     } else if (buttonValue == "=") {
-        // Maybe redudant to handle this here, as the default case in operate() throws an error for this. 
-        if (operator != "") {
-            operate(operator, firstNumber, secondNumber);
-            console.log(result); //Just for testing
-        }
+        operate(operator, activeNumber, passiveNumber);
+        console.log(result);
     } else {
         displayArray.push(buttonValue);
         arrayConverter(displayArray);
@@ -80,5 +76,15 @@ const arrayConverter = function (displayArray) {
 const populateScreen = function (formattedString) {
     const screen = document.querySelector('.screen');
     screen.textContent = formattedString;
-    return firstNumber = Number(formattedString);
+    return activeNumber = Number(formattedString);
 }
+
+const fullReset = function () {
+    activeNumber = 0;
+    passiveNumber = 0;
+    result = 0;
+    operator = "";
+    displayArray = [];
+}
+
+// Maybe have two different arrays; one for displaying the numbers in the frontend, and one for the actual calculation
