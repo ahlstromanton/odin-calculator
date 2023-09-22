@@ -66,19 +66,23 @@ const getEnteredNumber = function (clickedButton) {
         stringToNumber(buttonValue);
         return displayArray;
     }
-    return buttonValue
+    return buttonValue;
 }
 
-// Creates array of input numbers
+// Creates number array of input numbers
 const stringToNumber = function (number) {
     let inputConvertedToNumber = Number(number);
     calculationArray.push(inputConvertedToNumber);
+    // This should probably be called when operate() runs (line 60)
+    numberArrayToNumber(calculationArray);
 }
 
 // Creates number of array of numbers
 const numberArrayToNumber = function (calculationArray) {
     let convertedNumber = calculationArray.map(Number);
     console.log(convertedNumber);
+    calculatedActiveNumber = convertedNumber;
+    return calculatedActiveNumber;
 }
 
 // Converts the array created in getEnteredNumber() into a string to display for the user. Needed to remove ","s?
@@ -104,6 +108,7 @@ const fullReset = function () {
     result = 0;
     operator = "";
     displayArray = [];
+    calculationArray = [];
 }
 
 // Maybe have two different arrays; one for displaying the numbers in the frontend, and one for the actual calculation
