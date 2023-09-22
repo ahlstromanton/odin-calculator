@@ -1,6 +1,12 @@
-#wrapper {}
+#wrapper {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
 
-.calculator-body {}
+.calculator-body {
+    flex: 1;
+}
 
 .screen {
     width: 10%;
